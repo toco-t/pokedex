@@ -1,0 +1,80 @@
+:root {
+    --color-accent: #FFCB05;
+    --color-border: #DCDCDC;
+    --color-bg: #003A70;
+    --color-dark: #333;
+    --color-shadow: #3D7DCA;
+    --color-txt: #f1f1f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background: var(--color-bg);
+    font-family: "Press Start 2P", cursive;
+    height: 100vh;
+}
+
+header, footer {
+    color: var(--color-accent);
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    text-shadow: 2px 2px var(--color-shadow);
+}
+
+nav {
+    background: var(--color-dark);
+    border: 0.2rem solid var(--color-border);
+}
+
+nav ul {
+    color: var(--color-txt);
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+nav li {
+    padding: 1rem 1.5rem;
+}
+
+nav a {
+    color: var(--color-txt);
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+nav a:hover::before {
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+    border-left: 0.6rem solid var(--color-accent);
+    content: "";
+    display: inline-block;
+    padding-right: 0.3rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+/****** landing *******/
+
+.intro {
+    color: var(--color-txt);
+    line-height: 1.4;
+    margin: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px var(--color-dark);
+}
+
