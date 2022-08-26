@@ -1,0 +1,8 @@
+.intro {
+    color: var(--color-txt);
+    line-height: 1.4;
+    margin: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px var(--color-dark);
+}
+
