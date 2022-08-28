@@ -1,12 +1,60 @@
 .intro {
     color: var(--color-txt);
     line-height: 1.4;
-    margin: 2rem;
+    margin: 3rem;
     text-align: center;
     text-shadow: 2px 2px var(--color-dark);
 }
 
-.row {
+.grid {
     display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
     justify-content: space-around;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.pokemon {
+    background: var(--color-txt);
+    border: 0.5rem double var(--color-dark);
+    border-radius: 5px;
+    padding: 2.5rem;
+    text-align: center;
+    width: 22%;
+}
+
+.pokemon a {
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+/****** for tablet ******/
+
+@media screen and (max-width: 1024px) {
+	.grid {
+        gap: 3rem;
+    }
+
+    .pokemon {
+        width: 25%;
+    }
+}
+
+/****** for mobile ******/
+
+@media screen and (max-width: 600px) {
+    .intro {
+        font-size: 0.7rem;
+        margin: 3rem 0;
+    }
+
+	.grid {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .pokemon {
+        width: 75%;
+    }
 }

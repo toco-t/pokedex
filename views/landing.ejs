@@ -9,7 +9,7 @@
 				<h1>Pokédex</h1>
 			</header>
 
-<%- include("partials/nav") %> 
+			<%- include("partials/nav") %> 
 
 			<main>
 				<div class="intro">
@@ -17,13 +17,15 @@
 				</div>
 			</main>
 
-			<% pokeList.forEach(pokemon => { %>
-				<div class="pokemon">
-					<a href="/pokemon/<%= pokemon._id %>">
-						<p>No. <%= pokemon._id %></p>
-						<img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
-					</a>
-				</div>
-			<% }) %>
+			<div class="grid">
+				<% pokeList.forEach(pokemon => { %>
+					<div class="pokemon">
+						<a href="/pokemon/<%= pokemon._id %>">
+							<p>No. <%= pokemon._id %></p>
+							<img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
+						</a>
+					</div>
+				<% }) %>
+			</div>
 
 <%- include("partials/footer") %>

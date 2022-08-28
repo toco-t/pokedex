@@ -67,3 +67,26 @@ main {
     flex-direction: column;
     margin: 1rem;
 }
+
+footer p {
+    margin: 3rem 0;
+}
+
+/****** for tablet ******/
+
+@media screen and (max-width: 1024px) {
+	
+}
+
+/****** for mobile ******/
+
+@media screen and (max-width: 600px) {
+	nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
