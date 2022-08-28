@@ -1,9 +1,6 @@
 <%- include("partials/header") %>
 	<!-- css -->
 	<link rel="stylesheet" href="css/landing.css">
-
-	<!-- javascript -->
-	<script src="js/landing.js"></script>
 </head>
 
 	<body>
@@ -18,9 +15,15 @@
 				<div class="intro">
 					<h2>Here, take one of these rare Pokémon...</h2>
 				</div>
-				<div class="row"></div>
-				<div class="row"></div>
-				<div class="row"></div>
 			</main>
+
+			<% pokeList.forEach(pokemon => { %>
+				<div class="pokemon">
+					<a href="/pokemon/<%= pokemon._id %>">
+						<p>No. <%= pokemon._id %></p>
+						<img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
+					</a>
+				</div>
+			<% }) %>
 
 <%- include("partials/footer") %>

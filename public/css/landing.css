@@ -6,3 +6,7 @@
     text-shadow: 2px 2px var(--color-dark);
 }
 
+.row {
+    display: flex;
+    justify-content: space-around;
+}
