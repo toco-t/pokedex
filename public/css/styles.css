@@ -21,6 +21,11 @@ body {
     height: 100vh;
 }
 
+h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
 header, footer {
     color: var(--color-accent);
     display: flex;
@@ -32,6 +37,7 @@ header, footer {
 nav {
     background: var(--color-dark);
     border: 0.2rem solid var(--color-border);
+    padding: 0.5rem 0;
 }
 
 nav ul {
@@ -75,7 +81,9 @@ footer p {
 /****** for tablet ******/
 
 @media screen and (max-width: 1024px) {
-	
+	h1 {
+        font-size: 2rem;
+    }
 }
 
 /****** for mobile ******/

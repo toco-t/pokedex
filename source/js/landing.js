@@ -11,7 +11,7 @@ async function getRandomPokemon() {
             pokeList[i] = {
                 _id: pokeId,
                 name: response.data.name,
-                img: response.data.sprites.versions['generation-iv']['diamond-pearl'].front_default
+                img: response.data.sprites.versions['generation-v']['black-white'].animated.front_default
             }
         })
         .catch((error) => {

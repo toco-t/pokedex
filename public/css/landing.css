@@ -19,6 +19,7 @@
     background: var(--color-txt);
     border: 0.5rem double var(--color-dark);
     border-radius: 5px;
+    height: 15rem;
     padding: 2.5rem;
     text-align: center;
     width: 22%;
@@ -26,7 +27,10 @@
 
 .pokemon a {
     color: var(--color-dark);
-    margin-bottom: 1rem;
+}
+
+.pokemon p {
+    margin-bottom: 2rem;
 }
 
 /****** for tablet ******/
