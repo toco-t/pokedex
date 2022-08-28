@@ -1,3 +1,6 @@
 {
-	"cSpell.ignoreWords": ["Pokédex"]
+	"cSpell.ignoreWords": [
+		"Pokédex",
+		"pokeapi"
+	]
 }
