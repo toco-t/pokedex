@@ -7,8 +7,85 @@
     flex-direction: column;
     margin: 5rem auto;
     padding: 2rem;
-    width: 75%;
+    width: 50%;
 }
+
+.card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card__header__types li {
+    border: 5px double var(--color-txt);
+    border-radius: 16px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.card__stats {
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.card__stats__stat {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.stat__name, .stat__value {
+    display: inline-block;
+}
+
+.stat__name {
+    width: 45%;
+}
+
+.stat__value {
+    width: 3rem;
+}
+
+.stat__bar, .stat__bar__container {
+    border-radius: 3px;
+}
+
+.stat__bar {
+    background-color: var(--color-txt);
+    height: 1rem;
+}
+
+.stat__bar__container {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40%;
+}
+
+.card__appearance__height p, .card__appearance__weight p {
+    margin: 1rem 0;
+}
+
+.card__abilities {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    width: 90%;
+}
+
+.abilities__ability {
+    border: 2px solid var(--color-txt);
+    border-radius: 16px;
+    margin-top: 0.5rem;
+    padding: 0.7rem;
+}
+
+.abilities__ability:hover {
+    background: var(--color-txt);
+    color: var(--color-black);
+}
+
+/****** background for different types ******/
 
 .normal {
     background: linear-gradient(90deg,#D3D3D3,#B0B0B0);
@@ -80,4 +157,32 @@
 
 .fairy {
     background: linear-gradient(90deg,#F5AAE5,#EC8CE5); 
+}
+
+@media screen and (max-width: 1275px) {
+	.card {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .card {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+	.card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+	.stat__bar, .stat__bar__container {
+        display: none;
+    }
+
+    .card__abilities {
+        flex-direction: column;
+    }
 }

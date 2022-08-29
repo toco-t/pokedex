@@ -29,7 +29,7 @@
                     <div class="card__stats__stat">
                         <p class="stat__name"> <%= _.startCase(stat.stat.name) %> </p>
                         <div class="stat__bar__container">
-                            <div class="stat__bar" style=`width: <%= stat.base_stat < 100 ? stat.base_stat : 100 %>%`></div>
+                            <div class="stat__bar" style="width: <%= stat.base_stat < 100 ? stat.base_stat : 100 %>%"></div>
                         </div>
                         <p class="stat__value"> <%= stat.base_stat %> </p>
                     </div>
@@ -37,16 +37,17 @@
             </div>
             <div class="card__appearance">
                 <div class="card__appearance__height">
-                    <p>Height</p>
+                    <small>Height</small>
                     <p> <%= info.height / 10 %>m | <%= (info.height / 10 * 3.2).toFixed(2) %>ft</p>
                 </div>
                 <div class="card__appearance__weight">
-                    <p>Weight</p>
+                    <small>Weight</small>
                     <p> <%= info.weight / 10 %>kg | <%= (info.weight /10 * 2.2).toFixed(2) %>lbs</p>
                 </div>
             </div>
-            <div class="card__footer">
-                <ul class="card__footer__abilities">
+            <div class="card__abilities">
+                <small>Abilities</small>
+                <ul>
                     <% info.abilities.forEach(ability => { %>
                         <li class="abilities__ability"> <%= _.startCase(ability.ability.name) %> </li> 
                     <% }); %> 
