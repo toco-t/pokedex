@@ -1,0 +1,57 @@
+<%- include("partials/header") %> 
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/card.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Pokédex</h1>
+        </header>
+
+        <%- include("partials/nav") %> 
+
+        <div class="card">
+            <div class="card__header">
+                <p> No.<%= info.id %> </p>
+                <img src=" <%= info.sprite %> " alt=" <%= info.name %> ">
+                <p> <%= _.startCase(info.name) %> </p>
+                <ul class="card__header__types">
+                    <% info.types.forEach(type => { %>
+                        <li> <%= _.startCase(type.type.name) %> </li> 
+                    <% }); %> 
+                </ul>
+            </div>
+            <div class="card__stats">
+                <% info.stats.forEach(stat => { %>
+                    <div class="card__stats__stat">
+                        <p class="stat__name"> <%= _.startCase(stat.stat.name) %> </p>
+                        <div class="stat__bar__container">
+                            <div class="stat__bar" style=`width: <%= stat.base_stat < 100 ? stat.base_stat : 100 %>%`></div>
+                        </div>
+                        <p class="stat__value"> <%= stat.base_stat %> </p>
+                    </div>
+                <% }); %> 
+            </div>
+            <div class="card__appearance">
+                <div class="card__appearance__height">
+                    <p>Height</p>
+                    <p> <%= info.height / 10 %>m | <%= (info.height / 10 * 3.2).toFixed(2) %>ft</p>
+                </div>
+                <div class="card__appearance__weight">
+                    <p>Weight</p>
+                    <p> <%= info.weight / 10 %>kg | <%= (info.weight /10 * 2.2).toFixed(2) %>lbs</p>
+                </div>
+            </div>
+            <div class="card__abilities">
+                <ul>
+                   <li> <%= _.startCase(info.ability_1) %> </li>
+                   <li> <%= _.startCase(info.ability_2) %> </li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<%- include("partials/footer") %> 

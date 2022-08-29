@@ -1,6 +1,7 @@
 const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const _ = require("lodash");
 
 const app = express();
 
@@ -10,6 +11,8 @@ const { getStats } = require("./source/js/card.js");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+
+app.locals._ = _;
 
 app.get("/", (req, res) => {
 	getRandomPokemon().then((value) => {
