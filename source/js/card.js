@@ -1,35 +1,29 @@
 const axios = require("axios").default;
+const _ = require("lodash");
 
 async function getStats(id) {
-	let pokemonStats = {};
+	let pokemonInfo = {};
 
 	await axios
 		.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
 		.then((response) => {
-			pokemonStats = {
+			pokemonInfo = {
 				id: response.data.id,
-				sprite:
-					response.data.sprites.versions["generation-v"]["black-white"].animated
-						.front_default,
-				name: response.data.name,
-				type: response.data.types,
+				sprite: response.data.sprites.versions["generation-v"]["black-white"].animated.front_default,
+				name: _.startCase(_.toLower(response.data.name)),
+				types: response.data.types,
 				height: response.data.height,
 				weight: response.data.weight,
-				hp: response.data.stats[0].base_stat,
-				attack: response.data.stats[1].base_stat,
-				defense: response.data.stats[2].base_stat,
-				specialAttack: response.data.stats[3].base_stat,
-				specialDefense: response.data.stats[4].base_stat,
-				speed: response.data.stats[5].base_stat,
-				ability_1: response.data.abilities[0].ability.name,
-				ability_2: response.data.abilities[1].ability.name,
+				stats: response.data.stats,
+				ability_1: _.startCase(_.toLower(response.data.abilities[0].ability.name)),
+				ability_2: _.startCase(_.toLower(response.data.abilities[1].ability.name)),
 			};
 		})
 		.catch((error) => {
 			console.log(error);
 		});
 
-	return pokemonStats;
+	return pokemonInfo;
 }
 
 module.exports = { getStats: getStats };

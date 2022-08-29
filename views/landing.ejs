@@ -1,31 +1,32 @@
 <%- include("partials/header") %>
 	<!-- css -->
+	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/landing.css">
 </head>
 
-	<body>
-		<div class="container">
-			<header>
-				<h1>Pokédex</h1>
-			</header>
+<body>
+	<div class="container">
+		<header>
+			<h1>Pokédex</h1>
+		</header>
 
-			<%- include("partials/nav") %> 
+		<%- include("partials/nav") %> 
 
-			<main>
-				<div class="intro">
-					<h2>Here, take one of these rare Pokémon...</h2>
-				</div>
-			</main>
-
-			<div class="grid">
-				<% pokeList.forEach(pokemon => { %>
-					<div class="pokemon">
-						<a href="/pokemon/<%= pokemon._id %>">
-							<p>No. <%= pokemon._id %></p>
-							<img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
-						</a>
-					</div>
-				<% }) %>
+		<main>
+			<div class="intro">
+				<h2>Here, take one of these rare Pokémon...</h2>
 			</div>
+		</main>
+
+		<div class="grid">
+			<% pokeList.forEach(pokemon => { %>
+				<div class="pokemon">
+					<a href="/cards/<%= pokemon._id %>">
+						<p>No. <%= pokemon._id %></p>
+						<img src="<%= pokemon.img %>" alt="<%= pokemon.name %>">
+					</a>
+				</div>
+			<% }) %>
+		</div>
 
 <%- include("partials/footer") %>
