@@ -3,7 +3,7 @@
     line-height: 1.4;
     margin: 3rem;
     text-align: center;
-    text-shadow: 2px 2px var(--color-dark);
+    text-shadow: 2px 2px var(--color-black);
 }
 
 .grid {
@@ -17,7 +17,7 @@
 
 .pokemon {
     background: var(--color-txt);
-    border: 0.5rem double var(--color-dark);
+    border: 0.5rem double var(--color-black);
     border-radius: 5px;
     height: 15rem;
     padding: 2.5rem;
@@ -26,7 +26,7 @@
 }
 
 .pokemon a {
-    color: var(--color-dark);
+    color: var(--color-black);
 }
 
 .pokemon p {

@@ -2,7 +2,7 @@
     --color-accent: #FFCB05;
     --color-border: #DCDCDC;
     --color-bg: #003A70;
-    --color-dark: #333;
+    --color-black: #333;
     --color-shadow: #3D7DCA;
     --color-txt: #f1f1f1;
 }
@@ -35,7 +35,7 @@ header, footer {
 }
 
 nav {
-    background: var(--color-dark);
+    background: var(--color-black);
     border: 0.2rem solid var(--color-border);
     padding: 0.5rem 0;
 }

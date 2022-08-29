@@ -12,8 +12,9 @@
 
         <%- include("partials/nav") %> 
 
-        <div class="card">
-            <div class="card__header">
+
+        <div class="card <%= info.types[0].type.name %>"> 
+            <div class="card__header"> 
                 <p> No.<%= info.id %> </p>
                 <img src=" <%= info.sprite %> " alt=" <%= info.name %> ">
                 <p> <%= _.startCase(info.name) %> </p>
@@ -44,11 +45,12 @@
                     <p> <%= info.weight / 10 %>kg | <%= (info.weight /10 * 2.2).toFixed(2) %>lbs</p>
                 </div>
             </div>
-            <div class="card__abilities">
-                <ul>
-                   <li> <%= _.startCase(info.ability_1) %> </li>
-                   <li> <%= _.startCase(info.ability_2) %> </li> 
-                </ul>
+            <div class="card__footer">
+                <ul class="card__footer__abilities">
+                    <% info.abilities.forEach(ability => { %>
+                        <li class="abilities__ability"> <%= _.startCase(ability.ability.name) %> </li> 
+                    <% }); %> 
+                </ul>   
             </div>
         </div>
     </div>
