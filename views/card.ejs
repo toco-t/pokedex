@@ -17,7 +17,7 @@
             <div class="card__header"> 
                 <p> No.<%= info.id %> </p>
                 <img src=" <%= info.sprite %> " alt=" <%= info.name %> ">
-                <p> <%= _.startCase(info.name) %> </p>
+                <p class="card__header__name"> <%= _.startCase(info.name) %> </p>
                 <ul class="card__header__types">
                     <% info.types.forEach(type => { %>
                         <li> <%= _.startCase(type.type.name) %> </li> 

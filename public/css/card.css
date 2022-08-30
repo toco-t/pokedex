@@ -1,188 +1,197 @@
 .card {
-    align-items: center;
-    border: 1rem double var(--color-txt);
-    border-radius: 10px;
-    color: var(--color-txt);
-    display: flex;
-    flex-direction: column;
-    margin: 5rem auto;
-    padding: 2rem;
-    width: 50%;
+	align-items: center;
+	border: 1rem double var(--color-txt);
+	border-radius: 10px;
+	color: var(--color-txt);
+	display: flex;
+	flex-direction: column;
+	margin: 5rem auto;
+	padding: 2rem;
+	width: 50%;
 }
 
 .card__header {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	text-align: center;
+}
+
+.card__header__name {
+	font-size: 1.5rem;
 }
 
 .card__header__types li {
-    border: 5px double var(--color-txt);
-    border-radius: 16px;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    text-align: center;
+	border: 5px double var(--color-txt);
+	border-radius: 16px;
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	text-align: center;
 }
 
 .card__stats {
-    margin: 1rem 0;
-    width: 100%;
+	margin: 1rem 0;
+	width: 100%;
 }
 
 .card__stats__stat {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 0;
 }
 
-.stat__name, .stat__value {
-    display: inline-block;
+.stat__name,
+.stat__value {
+	display: inline-block;
 }
 
 .stat__name {
-    width: 45%;
+	width: 45%;
 }
 
 .stat__value {
-    width: 3rem;
+	width: 3rem;
 }
 
-.stat__bar, .stat__bar__container {
-    border-radius: 3px;
+.stat__bar,
+.stat__bar__container {
+	border-radius: 3px;
 }
 
 .stat__bar {
-    background-color: var(--color-txt);
-    height: 1rem;
+	background-color: var(--color-txt);
+	height: 1rem;
 }
 
 .stat__bar__container {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 40%;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 40%;
 }
 
-.card__appearance__height p, .card__appearance__weight p {
-    margin: 1rem 0;
+.card__appearance__height p,
+.card__appearance__weight p {
+	margin: 1rem 0;
 }
 
 .card__abilities {
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
-    width: 90%;
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1rem;
+	width: 90%;
 }
 
 .abilities__ability {
-    border: 2px solid var(--color-txt);
-    border-radius: 16px;
-    margin-top: 0.5rem;
-    padding: 0.7rem;
+	border: 2px solid var(--color-txt);
+	border-radius: 16px;
+	margin-top: 0.5rem;
+	padding: 0.7rem;
 }
 
 .abilities__ability:hover {
-    background: var(--color-txt);
-    color: var(--color-black);
+	background: var(--color-txt);
+	color: var(--color-black);
 }
 
 /****** background for different types ******/
 
 .normal {
-    background: linear-gradient(90deg,#D3D3D3,#B0B0B0);
+	background: linear-gradient(90deg, #d3d3d3, #b0b0b0);
 }
 
 .fire {
-    background: linear-gradient(90deg,#E37C45,#C05820); 
+	background: linear-gradient(90deg, #e37c45, #c05820);
 }
 
 .water {
-    background: linear-gradient(90deg,#019FDF,#0161C5); 
+	background: linear-gradient(90deg, #019fdf, #0161c5);
 }
 
 .electric {
-    background: linear-gradient(90deg,#E3DE41, #C0BB1C); 
+	background: linear-gradient(90deg, #e3de41, #c0bb1c);
 }
 
 .grass {
-    background: linear-gradient(90deg,#46E440,#21C11B); 
+	background: linear-gradient(90deg, #46e440, #21c11b);
 }
 
 .ice {
-    background: linear-gradient(90deg,#8FD0F2,#6BAED0); 
+	background: linear-gradient(90deg, #8fd0f2, #6baed0);
 }
 
 .fighting {
-    background: linear-gradient(90deg,#DB3C3D,#B91718); 
+	background: linear-gradient(90deg, #db3c3d, #b91718);
 }
 
 .poison {
-    background: linear-gradient(90deg,#9A3CDA,#7617B8); 
+	background: linear-gradient(90deg, #9a3cda, #7617b8);
 }
 
 .ground {
-    background: linear-gradient(90deg,#987339,#754E13); 
+	background: linear-gradient(90deg, #987339, #754e13);
 }
 
 .flying {
-    background: linear-gradient(90deg,#45DBD5,#20B9B3); 
+	background: linear-gradient(90deg, #45dbd5, #20b9b3);
 }
 
 .psychic {
-    background: linear-gradient(90deg,#E9A2EA,#C67EC7); 
+	background: linear-gradient(90deg, #e9a2ea, #c67ec7);
 }
 
 .bug {
-    background: linear-gradient(90deg,#28A62C,#038206); 
+	background: linear-gradient(90deg, #28a62c, #038206);
 }
 
 .rock {
-    background: linear-gradient(90deg,#949494,#707070); 
+	background: linear-gradient(90deg, #949494, #707070);
 }
 
 .ghost {
-    background: linear-gradient(90deg,#BE69DA,#9B44B8); 
+	background: linear-gradient(90deg, #be69da, #9b44b8);
 }
 
 .dragon {
-    background: linear-gradient(90deg,#39AE99,#148B76); 
+	background: linear-gradient(90deg, #39ae99, #148b76);
 }
 
 .dark {
-    background: linear-gradient(90deg,#172E94,#031562); 
+	background: linear-gradient(90deg, #172e94, #031562);
 }
 
 .steel {
-    background: linear-gradient(90deg,#737373,#4E4E4F); 
+	background: linear-gradient(90deg, #737373, #4e4e4f);
 }
 
 .fairy {
-    background: linear-gradient(90deg,#F5AAE5,#EC8CE5); 
+	background: linear-gradient(90deg, #f5aae5, #ec8ce5);
 }
 
 @media screen and (max-width: 1275px) {
 	.card {
-        width: 75%;
-    }
+		width: 75%;
+	}
 }
 
 @media screen and (max-width: 850px) {
-    .card {
-        width: 90%;
-    }
+	.card {
+		width: 90%;
+	}
 }
 
 @media screen and (max-width: 700px) {
 	.card {
-        width: 100%;
-    }
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 630px) {
-	.stat__bar, .stat__bar__container {
-        display: none;
-    }
+	.stat__bar,
+	.stat__bar__container {
+		display: none;
+	}
 
-    .card__abilities {
-        flex-direction: column;
-    }
+	.card__abilities {
+		flex-direction: column;
+	}
 }

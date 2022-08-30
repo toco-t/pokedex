@@ -22,7 +22,6 @@ app.get("/", (req, res) => {
 
 app.get("/cards/:id", (req, res) => {
 	getStats(req.params.id).then((value) => {
-		console.log(value);
 		res.render("card", { info: value });
 	});
 });
