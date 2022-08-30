@@ -1,0 +1,38 @@
+<%- include("./partials/header") %> 
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/search.css">
+
+    <!-- js -->
+    <script src="../../js/load.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Pokédex</h1>
+        </header>
+
+        <%- include("partials/nav") %> 
+
+        <main>
+            <main>
+                <div class="intro">
+                    <h2>Pokemon Storage System opened...</h2>
+                </div>
+            </main>
+
+            <div class="options">
+                <% for (let i = 0; i < type.length - 2; i++) { %>
+                    <div class="type <%= type[i].name %> " onclick="searchByType(`<%= type[i].name %>`)">
+                        <%= type[i].name %>
+                    </div>
+                <% } %> 
+            </div>
+
+            <table>
+
+            </table>
+        </main>
+
+<%- include("./partials/footer") %>

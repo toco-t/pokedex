@@ -1,7 +1,7 @@
 const axios = require("axios").default;
 
 async function getStats(id) {
-	let pokemonInfo = {};
+	let pokemonInfo;
 
 	await axios
 		.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
