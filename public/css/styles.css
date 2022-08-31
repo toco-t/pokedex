@@ -26,6 +26,10 @@ h1 {
     margin: 1rem 0;
 }
 
+a {
+    color: var(--color-txt);
+}
+
 header, footer {
     color: var(--color-accent);
     display: flex;
@@ -51,9 +55,6 @@ nav li {
     padding: 1rem 1.5rem;
 }
 
-nav a {
-    color: var(--color-txt);
-}
 
 nav a:hover {
     color: var(--color-accent);

@@ -24,15 +24,16 @@
 
             <div class="options">
                 <% for (let i = 0; i < type.length - 2; i++) { %>
-                    <div class="type <%= type[i].name %> " onclick="searchByType(`<%= type[i].name %>`)">
+                    <div 
+                        class="type <%= type[i].name %>" 
+                        onclick="searchByType(event)" 
+                        data-type="<%= type[i].name %>">
                         <%= type[i].name %>
                     </div>
                 <% } %> 
             </div>
 
-            <table>
-
-            </table>
+            <table class="filtered"></table>
         </main>
 
 <%- include("./partials/footer") %>
