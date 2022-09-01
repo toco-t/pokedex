@@ -17,7 +17,10 @@ app.locals._ = _;
 
 app.get("/", (req, res) => {
 	getRandomPokemon().then((value) => {
-		res.render("landing", { pokeList: value });
+		value != undefined ? res.render("landing", { pokeList: value }) : res.render("error");
+	}).catch(error => {
+		console.log(error);
+		res.render("error");
 	});
 });
 
@@ -25,8 +28,9 @@ app.route("/cards")
 
 	.post((req, res) => {
 		getStats(_.lowerCase(req.body.id)).then((value) => {
-			res.render("card", { info: value });
+			value != undefined ? res.render("card", { info: value }) : res.render("error");
 		}).catch(error => {
+			console.log(error);
 			res.render("error");
 		});
 	});
@@ -35,15 +39,20 @@ app.route("/cards/:id")
 
 	.get((req, res) => {
 		getStats(req.params.id).then((value) => {
-			res.render("card", { info: value });
+			value != undefined ? res.render("card", { info: value }) : res.render("error");
+		}).catch(error => {
+			console.log(error);
+			res.render("error");
 		});
 	});
 
 app.route("/search")
 
 	.get((req, res) => {
-		getOptions().then(response => {
-			res.render("search", { type: response.type, region: response.region })
+		getOptions().then(value => {
+			value != undefined ? res.render("search", { type: value.type, region: value.region }) : res.render("error");
+		}).catch(error => {
+			console.log(error);
 		});
 	});
 

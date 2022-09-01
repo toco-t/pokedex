@@ -1,0 +1,10 @@
+.jumbotron {
+    color: var(--color-txt);
+    margin: 10rem auto;
+    text-align: center;
+}
+
+.error {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+}
