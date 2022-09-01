@@ -21,6 +21,16 @@ app.get("/", (req, res) => {
 	});
 });
 
+app.route("/cards")
+
+	.post((req, res) => {
+		getStats(_.lowerCase(req.body.id)).then((value) => {
+			res.render("card", { info: value });
+		}).catch(error => {
+			res.render("error");
+		});
+	});
+
 app.route("/cards/:id")
 
 	.get((req, res) => {

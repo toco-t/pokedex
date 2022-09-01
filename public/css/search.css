@@ -1,3 +1,33 @@
+form {
+    color: var(--color-txt);
+    margin: 0 auto 5rem;
+    text-align: center;
+    width: 75%;
+}
+
+form input {
+    border: 0.5rem double var(--color-black);
+    border-radius: 2px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 40%;
+}
+
+button {
+    background: var(--color-black);
+    border: 2px solid var(--color-txt);
+    border-radius: 5px;
+    color: var(--color-txt);
+    font-family: "Press Start 2P", cursive;
+    padding: 0.5rem 1rem;
+}
+
+small {
+    color: var(--color-txt);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 .options {
     display: flex;
     flex-wrap: wrap;
@@ -44,8 +74,9 @@
 .filtered img {
     background: rgba(3, 3, 3, 0.1);
     border-radius: 100%;
-    padding: 0 0 0.5rem;
+    padding: 0 0 1.5rem;
     vertical-align: center;
+    width: 7rem;
 }
 
 
@@ -59,11 +90,21 @@
     .filtered {
         width: 90%;
     }
+
+    .filtered img {
+        padding: 0 0 0.5rem;
+        width: 5rem;
+    }
 }
 
 /****** for mobile ******/
 
 @media screen and (max-width: 600px) {
+    form input {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
     .filtered {
         font-size: 0.7rem;
         width: 100%;

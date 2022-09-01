@@ -22,6 +22,13 @@
                 </div>
             </main>
 
+            <small>Search by Name or ID:</small>
+            <form action="/cards" method="POST">
+                <input type="text" name="id">
+                <button type="submit">Search</button>
+            </form>
+
+            <small>Search by Type:</small>
             <div class="options">
                 <% for (let i = 0; i < type.length - 2; i++) { %>
                     <div 
