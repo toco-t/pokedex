@@ -15,6 +15,18 @@ app.use(express.urlencoded({ extended: true }));
 
 app.locals._ = _;
 
+mongoose.connect(`mongodb+srv://Toco:${process.env.PASSWORD}@cluster0.f0pqe.mongodb.net/?retryWrites=true&w=majority`);
+
+const userSchema = new mongoose.Schema({
+	_id: Number,
+	name: String,
+	email: String,
+	password: String,
+	favourites: [Object]
+});
+
+const User = mongoose.model("User", userSchema);
+
 app.get("/", (req, res) => {
 	getRandomPokemon().then((value) => {
 		value != undefined ? res.render("landing", { pokeList: value }) : res.render("error");
