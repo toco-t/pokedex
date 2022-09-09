@@ -8,18 +8,9 @@ form {
 form input {
     border: 0.5rem double var(--color-black);
     border-radius: 2px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 0.5rem 1rem;
     width: 40%;
-}
-
-button {
-    background: var(--color-black);
-    border: 2px solid var(--color-txt);
-    border-radius: 5px;
-    color: var(--color-txt);
-    font-family: "Press Start 2P", cursive;
-    padding: 0.5rem 1rem;
 }
 
 small {

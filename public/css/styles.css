@@ -21,6 +21,20 @@ body {
     height: 100vh;
 }
 
+button {
+    background: var(--color-black);
+    border: 2px solid var(--color-txt);
+    border-radius: 5px;
+    color: var(--color-txt);
+    cursor: pointer;
+    font-family: "Press Start 2P", cursive;
+    padding: 0.9rem 1.4rem;
+}
+
+button:hover {
+    outline: 2px solid var(--color-accent);
+}
+
 h1 {
     font-size: 3rem;
     margin: 1rem 0;
