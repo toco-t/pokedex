@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Pokédex</h1>
+        </header>
+
+        <%- include("partials/nav") %> 
+
+        <main>
+            <div class="login">
+                <h2>Checking Trainer ID...</h2>
+                <div class="login__form">
+                    <div class="login__form__input">
+                        <label for="name">Username:</label>
+                        <input type="text" name="username" value="" required>
+                    </div>
+                    <div class="login__form__input">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" value="" required>
+                    </div>
+                    <div class="login__form__input">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" value="" required>
+                    </div>
+                    <div class="login__btn">
+                        <button onclick="signUp()">Sign Up</button>
+                        <button onclick="logIN()">Log in</button>
+                    </div>
+                </div>
+                <div class="login__message"></div>
+            </div>
+        </main>
+
+<%- include("partials/footer") %> 
