@@ -4,8 +4,20 @@ const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const saltRound = 10;
 
 const app = express();
+
+app.use(
+	session({
+		secret: process.env.SECRET,
+		name: "session",
+		resave: false,
+		saveUninitialized: false,
+	})
+);
 
 const { getRandomPokemon } = require("./source/js/landing.js");
 const { getStats } = require("./source/js/card.js");
@@ -17,59 +29,84 @@ app.use(express.urlencoded({ extended: true }));
 
 app.locals._ = _;
 
-mongoose.connect(`mongodb+srv://Toco:${process.env.PASSWORD}@cluster0.f0pqe.mongodb.net/?retryWrites=true&w=majority`);
+mongoose.connect(
+	`mongodb+srv://Toco:${process.env.PASSWORD}@cluster0.f0pqe.mongodb.net/?retryWrites=true&w=majority`
+);
 
 const userSchema = new mongoose.Schema({
 	_id: Number,
 	name: String,
 	email: String,
 	password: String,
-	favourites: [Object]
+	favourites: [Object],
 });
 
 const User = mongoose.model("User", userSchema);
 
+function authenticate(req, res, next) {
+	req.session.authenticated ? next() : res.redirect("/register");
+}
+
 app.get("/", (req, res) => {
-	getRandomPokemon().then((value) => {
-		value != undefined ? res.render("landing", { pokeList: value }) : res.render("error");
-	}).catch(error => {
-		console.log(error);
-		res.render("error");
-	});
+	getRandomPokemon()
+		.then((value) => {
+			value != undefined
+				? res.render("landing", { pokeList: value })
+				: res.render("error");
+		})
+		.catch((error) => {
+			console.log(error);
+			res.render("error");
+		});
 });
 
-app.route("/cards")
+app
+	.route("/cards")
 
 	.post((req, res) => {
-		getStats(_.lowerCase(req.body.id)).then((value) => {
-			value != undefined ? res.render("card", { info: value }) : res.render("error");
-		}).catch(error => {
-			console.log(error);
-			res.render("error");
-		});
+		getStats(_.lowerCase(req.body.id))
+			.then((value) => {
+				value != undefined
+					? res.render("card", { info: value })
+					: res.render("error");
+			})
+			.catch((error) => {
+				console.log(error);
+				res.render("error");
+			});
 	});
 
-app.route("/cards/:id")
+app
+	.route("/cards/:id")
 
 	.get((req, res) => {
-		getStats(req.params.id).then((value) => {
-			value != undefined ? res.render("card", { info: value }) : res.render("error");
-		}).catch(error => {
-			console.log(error);
-			res.render("error");
-		});
+		getStats(req.params.id)
+			.then((value) => {
+				value != undefined
+					? res.render("card", { info: value })
+					: res.render("error");
+			})
+			.catch((error) => {
+				console.log(error);
+				res.render("error");
+			});
 	});
 
-app.route("/search")
+app
+	.route("/search")
 
 	.get((req, res) => {
-		getOptions().then(value => {
-			value != undefined ? res.render("search", { type: value.type, region: value.region }) : res.render("error");
-		}).catch(error => {
-			console.log(error);
-		});
+		getOptions()
+			.then((value) => {
+				value != undefined
+					? res.render("search", { type: value.type, region: value.region })
+					: res.render("error");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	});
 
-app.listen(3000, () => {
-	console.log("Server is running on port 3000...");
+app.listen(3000, (error) => {
+	error ? console.log(error) : console.log("Server is running on port 3000...");
 });
