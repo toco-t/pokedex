@@ -107,6 +107,22 @@ app
 			});
 	});
 
+app
+	.route("/register")
+
+	.get((req, res) => {
+		req.session.authenticated
+			? res.redirect("/account")
+			: res.render("/register");
+	});
+
+app
+	.route("/account")
+
+	.get(authenticate, (req, res) => {
+		res.render("account");
+	});
+
 app.listen(3000, (error) => {
 	error ? console.log(error) : console.log("Server is running on port 3000...");
 });
