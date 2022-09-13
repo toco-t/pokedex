@@ -8,8 +8,6 @@ function validateEmail(email) {
 }
 
 function signUp() {
-	$(".login__message").html("");
-
 	const username = $(".username").val();
 	const email = $(".email").val();
 	const password = $(".password").val();
@@ -34,7 +32,6 @@ function signUp() {
 				password: password,
 			},
 			success: (data) => {
-				console.log("success...");
 				$(".login__message").html(data);
 			},
 		});

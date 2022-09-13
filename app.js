@@ -23,6 +23,7 @@ app.use(
 const { getRandomPokemon } = require("./source/js/landing.js");
 const { getStats } = require("./source/js/card.js");
 const { getOptions } = require("./source/js/search.js");
+const { uniqueId } = require("lodash");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -35,7 +36,7 @@ mongoose.connect(
 );
 
 const userSchema = new mongoose.Schema({
-	user_id: Number,
+	user_id: String,
 	trainer_no: Number,
 	username: String,
 	email: String,
@@ -112,30 +113,30 @@ app
 	.route("/signup")
 
 	.post((req, res) => {
-		User.find(
+		User.findOne(
 			{
 				email: req.body.email,
 			},
-			(err, users) => {
-				if (users.length === 0) {
-					User.create(
-						{
-							// user_id: uuid(),
-							trainer_no: Math.floor(Math.random() * 100000),
-							username: req.body.username,
-							email: req.body.email,
-							password: req.body.password,
-							favourites: []
-						},
-						(err, users) => {
-							if (!err) res.send("REGISTRATION SUCCESSFUL...");
-						}
-					);
-				} else if (users.length >= 1) {
-					console.log("User found...");
+			(err, user) => {
+				if (!user) {
+					bcrypt.hash(req.body.password, saltRound, (err, hash) => {
+						User.create(
+							{
+								user_id: uuid(),
+								trainer_no: Math.floor(Math.random() * 1000000),
+								username: req.body.username,
+								email: req.body.email,
+								password: hash,
+								favourites: []
+							},
+							(err, users) => {
+								if (!err) res.send("REGISTRATION SUCCESSFUL...");
+							}
+						);
+					})
+				} else if (user) {
 					res.send("THE USER ALREADY EXISTS...");
 				} else {
-					console.log(err);
 					res.send("SOMETHING WENT WRONG...");
 				}
 			}
