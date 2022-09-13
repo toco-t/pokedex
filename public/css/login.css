@@ -8,7 +8,6 @@
 }
 
 .login__form {
-    margin-top: 4rem;
     padding: 1rem;
     width: 35%;
 }
@@ -22,13 +21,18 @@
 .login__form__input input {
     border: 0.3rem double var(--color-black);
     border-radius: 2px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 0.2rem 0.7rem;
     margin-bottom: 1rem;
 }
 
 .login__btn {
-    margin: 4rem 0 0;
+    margin: 4rem 0;
+}
+
+.login__message {
+    color: var(--color-accent);
+    margin: 3rem 0 1.5rem;
 }
 
 /****** for tablet ******/

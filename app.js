@@ -4,6 +4,7 @@ const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const { v4: uuid } = require("uuid");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 const saltRound = 10;
@@ -30,12 +31,13 @@ app.use(express.urlencoded({ extended: true }));
 app.locals._ = _;
 
 mongoose.connect(
-	`mongodb+srv://Toco:${process.env.PASSWORD}@cluster0.f0pqe.mongodb.net/?retryWrites=true&w=majority`
+	`mongodb+srv://Toco:${process.env.PASSWORD}@cluster0.f0pqe.mongodb.net/usersDB`
 );
 
 const userSchema = new mongoose.Schema({
-	_id: Number,
-	name: String,
+	user_id: Number,
+	trainer_no: Number,
+	username: String,
 	email: String,
 	password: String,
 	favourites: [Object],
@@ -44,7 +46,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 function authenticate(req, res, next) {
-	req.session.authenticated ? next() : res.redirect("/register");
+	req.session.authenticated ? next() : res.redirect("/login");
 }
 
 app.get("/", (req, res) => {
@@ -106,14 +108,46 @@ app
 				console.log(error);
 			});
 	});
+app
+	.route("/signup")
+
+	.post((req, res) => {
+		User.find(
+			{
+				email: req.body.email,
+			},
+			(err, users) => {
+				if (users.length === 0) {
+					User.create(
+						{
+							// user_id: uuid(),
+							trainer_no: Math.floor(Math.random() * 100000),
+							username: req.body.username,
+							email: req.body.email,
+							password: req.body.password,
+							favourites: []
+						},
+						(err, users) => {
+							if (!err) res.send("REGISTRATION SUCCESSFUL...");
+						}
+					);
+				} else if (users.length >= 1) {
+					console.log("User found...");
+					res.send("THE USER ALREADY EXISTS...");
+				} else {
+					console.log(err);
+					res.send("SOMETHING WENT WRONG...");
+				}
+			}
+		);
+	});
 
 app
-	.route("/register")
+	.route("/login")
 
 	.get((req, res) => {
-		req.session.authenticated
-			? res.redirect("/account")
-			: res.render("/register");
+		// req.session.authenticated ? res.redirect("/account") : res.render("/login");
+		res.render("login");
 	});
 
 app
