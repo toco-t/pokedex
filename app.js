@@ -147,8 +147,26 @@ app
 	.route("/login")
 
 	.get((req, res) => {
-		// req.session.authenticated ? res.redirect("/account") : res.render("/login");
 		res.render("login");
+	})
+
+	.post((req, res) => {
+		User.findOne({
+			username: req.body.username,
+		}, (err, account) => {
+			if (account) {
+				bcrypt.compare(req.body.password, account.password, (err, result) => {
+					if (result === true) {
+						req.session.user = account.username;
+						req.session.user_id = account.user_id;
+						req.session.authenticated = true;
+						res.send("")
+					}
+				})
+			} else {
+				res.send("NO ACCOUNT FOUND WITH THE EMAIL/PASSWORD...");
+			}
+		})
 	});
 
 app

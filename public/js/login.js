@@ -7,11 +7,11 @@ function validateEmail(email) {
 	return validEmail.test(email);
 }
 
-function signUp() {
+function validateCredentials(route) {
 	const username = $(".username").val();
 	const email = $(".email").val();
 	const password = $(".password").val();
-
+	
 	if (
 		withWhiteSpace(username) ||
 		withWhiteSpace(email) ||
@@ -24,7 +24,7 @@ function signUp() {
 		$(".login__message").html("INVALID EMAIL...");
 	} else {
 		$.ajax({
-			url: `http://localhost:3000/signup`,
+			url: `http://localhost:3000/${route}`,
 			type: "POST",
 			data: {
 				username: username,
@@ -32,8 +32,16 @@ function signUp() {
 				password: password,
 			},
 			success: (data) => {
-				$(".login__message").html(data);
+				data === "" ? window.location.href = "/account" : $(".login__message").html(data);
 			},
 		});
 	}
+} 
+
+function signUp() {
+	validateCredentials("signup");
+}
+
+function logIN() {
+	validateCredentials("login");
 }
