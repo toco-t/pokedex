@@ -1,0 +1,20 @@
+.card {
+    background: var(--color-shadow);
+    border: 0.5rem double var(--color-border);
+    border-radius: 5px;
+    color: var(--color-txt);
+    margin: 5rem auto;
+    padding: 2.5rem;
+    text-align: center;
+    width: 50%;
+}
+
+.card__id, .card__name {
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--color-black);
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1rem;
+    width: 100%;
+}
