@@ -11,7 +11,7 @@ function validateCredentials(route) {
 	const username = $(".username").val();
 	const email = $(".email").val();
 	const password = $(".password").val();
-	
+
 	if (
 		withWhiteSpace(username) ||
 		withWhiteSpace(email) ||
@@ -32,11 +32,13 @@ function validateCredentials(route) {
 				password: password,
 			},
 			success: (data) => {
-				data === "" ? window.location.href = "/account" : $(".login__message").html(data);
+				data === ""
+					? (window.location.href = "/account")
+					: $(".login__message").html(data);
 			},
 		});
 	}
-} 
+}
 
 function signUp() {
 	validateCredentials("signup");

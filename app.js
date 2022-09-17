@@ -63,6 +63,8 @@ app.get("/", (req, res) => {
 		});
 });
 
+/********** cards route **********/
+
 app
 	.route("/cards")
 
@@ -95,6 +97,8 @@ app
 			});
 	});
 
+/********** search route **********/
+
 app
 	.route("/search")
 
@@ -109,6 +113,9 @@ app
 				console.log(error);
 			});
 	});
+
+/********** signup route **********/
+
 app
 	.route("/signup")
 
@@ -127,13 +134,13 @@ app
 								username: req.body.username,
 								email: req.body.email,
 								password: hash,
-								favourites: []
+								favourites: [],
 							},
 							(err, users) => {
 								if (!err) res.send("REGISTRATION SUCCESSFUL...");
 							}
 						);
-					})
+					});
 				} else if (user) {
 					res.send("THE USER ALREADY EXISTS...");
 				} else {
@@ -143,6 +150,8 @@ app
 		);
 	});
 
+/********** login route **********/
+
 app
 	.route("/login")
 
@@ -151,29 +160,52 @@ app
 	})
 
 	.post((req, res) => {
-		User.findOne({
-			username: req.body.username,
-		}, (err, account) => {
-			if (account) {
-				bcrypt.compare(req.body.password, account.password, (err, result) => {
-					if (result === true) {
-						req.session.user = account.username;
-						req.session.user_id = account.user_id;
-						req.session.authenticated = true;
-						res.send("")
-					}
-				})
-			} else {
-				res.send("NO ACCOUNT FOUND WITH THE EMAIL/PASSWORD...");
+		User.findOne(
+			{
+				username: req.body.username,
+			},
+			(err, account) => {
+				if (account) {
+					bcrypt.compare(req.body.password, account.password, (err, result) => {
+						if (result === true) {
+							req.session.user = account.username;
+							req.session.user_id = account.user_id;
+							req.session.authenticated = true;
+							res.send("");
+						}
+					});
+				} else {
+					res.send("NO ACCOUNT FOUND WITH THE EMAIL/PASSWORD...");
+				}
 			}
-		})
+		);
 	});
+
+/********** account route **********/
 
 app
 	.route("/account")
 
 	.get(authenticate, (req, res) => {
 		res.render("account");
+	});
+
+/********** logout route **********/
+
+app
+	.route("/logout")
+
+	.get((req, res, next) => {
+		req.session.user = null;
+
+		req.session.save((err) => {
+			if (err) next(err);
+
+			req.session.regenerate((err) => {
+				if (err) next(err);
+				res.redirect("/");
+			});
+		});
 	});
 
 app.listen(3000, (error) => {

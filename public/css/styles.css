@@ -1,100 +1,101 @@
 :root {
-    --color-accent: #FFCB05;
-    --color-border: #DCDCDC;
-    --color-bg: #003A70;
-    --color-black: #333;
-    --color-shadow: #3D7DCA;
-    --color-txt: #f1f1f1;
+	--color-accent: #ffcb05;
+	--color-border: #dcdcdc;
+	--color-bg: #003a70;
+	--color-black: #333;
+	--color-shadow: #3d7dca;
+	--color-txt: #f1f1f1;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
 }
 
 body {
-    background: var(--color-bg);
-    font-family: "Press Start 2P", cursive;
-    height: 100vh;
+	background: var(--color-bg);
+	font-family: "Press Start 2P", cursive;
+	height: 100vh;
 }
 
 button {
-    background: var(--color-black);
-    border: 2px solid var(--color-txt);
-    border-radius: 5px;
-    color: var(--color-txt);
-    cursor: pointer;
-    font-family: "Press Start 2P", cursive;
-    padding: 0.9rem 1.4rem;
+	background: var(--color-black);
+	border: 2px solid var(--color-txt);
+	border-radius: 5px;
+	color: var(--color-txt);
+	cursor: pointer;
+	font-family: "Press Start 2P", cursive;
+	padding: 0.9rem 1.4rem;
 }
 
 h1 {
-    font-size: 3rem;
-    margin: 1rem 0;
+	font-size: 3rem;
+	margin: 1rem 0;
 }
 
 a {
-    color: var(--color-txt);
+	color: var(--color-txt);
 }
 
-header, footer {
-    color: var(--color-accent);
-    display: flex;
-    justify-content: center;
-    margin: 2rem;
-    text-shadow: 2px 2px var(--color-shadow);
+header,
+footer {
+	color: var(--color-accent);
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+	text-shadow: 2px 2px var(--color-shadow);
 }
 
 nav {
-    background: var(--color-black);
-    border: 0.2rem solid var(--color-border);
-    padding: 0.5rem 0;
+	background: var(--color-black);
+	border: 0.2rem solid var(--color-border);
+	padding: 0.5rem 0;
 }
 
 nav ul {
-    color: var(--color-txt);
-    display: flex;
-    justify-content: flex-start;
-    padding: 0;
+	color: var(--color-txt);
+	display: flex;
+	justify-content: flex-start;
+	padding: 0;
 }
 
 nav li {
-    padding: 1rem 1.5rem;
+	padding: 1rem 1.5rem;
 }
 
-
-button:hover, nav a:hover {
-    color: var(--color-accent);
+button:hover,
+nav a:hover {
+	color: var(--color-accent);
 }
 
 nav a:hover::before {
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-    border-left: 0.6rem solid var(--color-accent);
-    content: "";
-    display: inline-block;
-    padding-right: 0.3rem;
+	border-top: 0.5rem solid transparent;
+	border-bottom: 0.5rem solid transparent;
+	border-left: 0.6rem solid var(--color-accent);
+	content: "";
+	display: inline-block;
+	padding-right: 0.3rem;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
 }
 
 footer p {
-    margin: 3rem 0;
+	margin: 3rem 0;
 }
 
 .intro {
-    color: var(--color-txt);
-    line-height: 1.4;
-    margin: 3rem;
-    text-align: center;
-    text-shadow: 2px 2px var(--color-black);
+	color: var(--color-txt);
+	line-height: 1.4;
+	margin: 3rem;
+	text-align: center;
+	text-shadow: 2px 2px var(--color-black);
 }
 
 /****** background for different types ******/
@@ -175,19 +176,19 @@ footer p {
 
 @media screen and (max-width: 1024px) {
 	h1 {
-        font-size: 2rem;
-    }
+		font-size: 2rem;
+	}
 }
 
 /****** for mobile ******/
 
 @media screen and (max-width: 600px) {
 	nav ul {
-        display: flex;
-        flex-direction: column;
-    }
+		display: flex;
+		flex-direction: column;
+	}
 
-    footer p {
-        font-size: 0.8rem;
-    }
+	footer p {
+		font-size: 0.8rem;
+	}
 }
