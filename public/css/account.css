@@ -1,3 +1,7 @@
+.btn {
+    margin: 2rem 1rem 0 auto;
+}
+
 .card {
     background: var(--color-shadow);
     border: 0.5rem double var(--color-border);
@@ -6,15 +10,32 @@
     margin: 5rem auto;
     padding: 2.5rem;
     text-align: center;
-    width: 50%;
+    width: 40%;
 }
 
 .card__id, .card__name {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
     color: var(--color-black);
     display: flex;
     justify-content: space-between;
     margin: 2rem 0;
     padding: 1rem;
     width: 100%;
+}
+
+
+/****** for tablet ******/
+
+@media screen and (max-width: 1024px) {
+	.card {
+        width: 70%;
+    }
+}
+
+/****** for mobile ******/
+
+@media screen and (max-width: 600px) {
+	.card {
+        width: 100%;
+    }
 }

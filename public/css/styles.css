@@ -31,10 +31,6 @@ button {
     padding: 0.9rem 1.4rem;
 }
 
-button:hover {
-    outline: 2px solid var(--color-accent);
-}
-
 h1 {
     font-size: 3rem;
     margin: 1rem 0;
@@ -70,7 +66,7 @@ nav li {
 }
 
 
-nav a:hover {
+button:hover, nav a:hover {
     color: var(--color-accent);
 }
 
