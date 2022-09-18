@@ -1,41 +1,42 @@
 .card {
-    background: var(--color-shadow);
-    border: 0.5rem double var(--color-border);
-    border-radius: 5px;
-    color: var(--color-txt);
-    margin: 5rem auto;
-    padding: 2.5rem;
-    text-align: center;
-    width: 40%;
+	background: var(--color-shadow);
+	border: 0.5rem double var(--color-border);
+	border-radius: 5px;
+	color: var(--color-txt);
+	margin: 5rem auto;
+	padding: 2.5rem;
+	text-align: center;
+	width: 40%;
 }
 
-.card__id, .card__name {
-    background: rgba(255, 255, 255, 0.5);
-    color: var(--color-black);
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 0;
-    padding: 1rem;
-    width: 100%;
+.card__id,
+.card__name {
+	background: rgba(255, 255, 255, 0.5);
+	color: var(--color-black);
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem 0;
+	padding: 1rem;
+	width: 100%;
 }
 
 .logout {
-    margin: 2rem 1rem 0 auto;
-    padding: 1rem 1.5rem;
+	margin: 2rem 0.5rem 0 auto;
+	padding: 1rem 1.5rem;
 }
 
 /****** for tablet ******/
 
 @media screen and (max-width: 1024px) {
 	.card {
-        width: 70%;
-    }
+		width: 70%;
+	}
 }
 
 /****** for mobile ******/
 
 @media screen and (max-width: 600px) {
 	.card {
-        width: 100%;
-    }
+		width: 100%;
+	}
 }

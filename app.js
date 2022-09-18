@@ -187,7 +187,18 @@ app
 	.route("/account")
 
 	.get(authenticate, (req, res) => {
-		res.render("account");
+		User.findOne(
+			{
+				username: req.session.user,
+			},
+			(err, account) => {
+				if (account)
+					res.render("account", {
+						id: account.trainer_no,
+						name: account.username,
+					});
+			}
+		);
 	});
 
 /********** logout route **********/
