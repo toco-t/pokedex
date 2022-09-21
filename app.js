@@ -24,6 +24,7 @@ const { getRandomPokemon } = require("./source/js/landing.js");
 const { getStats } = require("./source/js/card.js");
 const { getOptions } = require("./source/js/search.js");
 const { uniqueId } = require("lodash");
+const e = require("express");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -58,7 +59,6 @@ app.get("/", (req, res) => {
 				: res.render("error");
 		})
 		.catch((error) => {
-			console.log(error);
 			res.render("error");
 		});
 });
@@ -76,7 +76,6 @@ app
 					: res.render("error");
 			})
 			.catch((error) => {
-				console.log(error);
 				res.render("error");
 			});
 	});
@@ -92,7 +91,6 @@ app
 					: res.render("error");
 			})
 			.catch((error) => {
-				console.log(error);
 				res.render("error");
 			});
 	});
@@ -110,7 +108,7 @@ app
 					: res.render("error");
 			})
 			.catch((error) => {
-				console.log(error);
+				res.render("error");
 			});
 	});
 
@@ -197,6 +195,9 @@ app
 						id: account.trainer_no,
 						name: account.username,
 					});
+				else {
+					res.render("error");
+				}
 			}
 		);
 	});
@@ -220,5 +221,5 @@ app
 	});
 
 app.listen(3000, (error) => {
-	error ? console.log(error) : console.log("Server is running on port 3000...");
+	if (!error) console.log("Server is running on port 3000...");
 });
